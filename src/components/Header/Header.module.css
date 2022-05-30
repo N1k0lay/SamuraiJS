@@ -1,0 +1,14 @@
+.header {
+    grid-area: header;
+    background-color: aliceblue;
+    max-height: 80px;
+}
+
+.logo {
+    width: 60px;
+    text-align: center;
+}
+
+.loginBlock {
+    float: right;
+}

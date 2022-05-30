@@ -1,0 +1,31 @@
+.userPhoto {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0 20px;
+    flex-wrap: wrap;
+}
+
+.pagination span {
+    padding: 5px 10px;
+    margin: 0 10px;
+    border: 1px solid black;
+}
+
+.pagination .selectedPage {
+    font-weight: 700;
+    border: 2px solid black;
+}
+
+.userBlock {
+    border: 1px solid rgba(0, 0, 0, 0.35);
+    border-radius: 3px;
+    margin: 5px;
+    padding: 10px;
+}

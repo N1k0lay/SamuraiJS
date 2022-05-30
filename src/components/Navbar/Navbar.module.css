@@ -1,0 +1,18 @@
+.nav {
+    background-color: beige;
+    grid-area: nav;
+    padding-top: 20px;
+}
+.itemDiv {
+    padding: 5px 10px;
+}
+.item {
+    color: black;
+    text-decoration: none;
+}
+
+
+.active{
+    color: #ff0000;
+    text-decoration: none;
+}
