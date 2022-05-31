@@ -1,6 +1,5 @@
 import React from "react";
 import classes from "./ProfileInfo.module.css";
-import profileImg from '../../../assets/img/bee-on-daisy.jpg';
 import Preloader from "../../common/preloader/Preloader";
 
 const ProfileInfo = (props) => {
