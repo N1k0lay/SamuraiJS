@@ -7,12 +7,9 @@ import Preloader from "../components/common/preloader/Preloader";
 let mapStateToPropsForRedirect = (state) => ({
     isAuth: state.auth.isAuth,
     isFetching: state.auth.isFetching,
-    state: state
 });
 export const withAuthRedirect = (Component) => {
     function RedirectComponent(props) {
-        console.log(props.isAuth);
-        console.log(props.state);
         if (props.isFetching) {
             return <Preloader/>
         } else {
