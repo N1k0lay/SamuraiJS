@@ -10,7 +10,7 @@ let mapStateToPropsForRedirect = (state) => ({
 });
 export const withAuthRedirect = (Component) => {
     function RedirectComponent(props) {
-        if (props.isFetching) {
+        if (props.isFetching && !props.isAuth) {
             return <Preloader/>
         } else {
             if (!props.isAuth) {

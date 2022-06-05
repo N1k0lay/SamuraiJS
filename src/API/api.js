@@ -27,13 +27,28 @@ export const usersAPI = {
                 return response.data
             });
     },
-    getProfile(id) {
-        return instance.get(`profile/${id}`)
+    getProfile(userId) {
+        console.warn('Используется устаревший метов. Используйте profileAPI')
+        return profileAPI.getProfile(userId);
+    }
+};
+
+export const profileAPI = {
+    getProfile(userId) {
+        return instance.get(`profile/${userId}`)
             .then(response => {
                 return response.data
             });
+    },
+    getStatus(userId) {
+        return instance.get(`profile/status/${userId}`)
+    },
+    updateStatus(status) {
+        return instance.put(`profile/status`, {
+            status: status
+        })
     }
-};
+}
 
 export const authAPI = {
     me() {
