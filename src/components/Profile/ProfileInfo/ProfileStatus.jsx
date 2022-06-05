@@ -26,6 +26,14 @@ class ProfileStates extends React.Component {
         });
     }
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if(prevProps.status !== this.props.status) { //Если меняется статус редактирования, то происходит синхронизация localstorage и сервера
+            this.setState({
+                status:this.props.status
+            });
+        }
+    }
+
     render() {
         return (
             <div className={classes.status}>
