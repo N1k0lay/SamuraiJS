@@ -2,15 +2,16 @@ import React from "react";
 import avatar from "../../assets/img/avatar.jpeg";
 import style from './Users.module.css';
 import {NavLink} from "react-router-dom";
+import Preloader from "../common/preloader/Preloader";
 
 let Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
     let pages = [1, 2, 3, 4, 5];
     pages.push(pagesCount);
-    // for (let i = 1; i <= pagesCount; i++) {
-    //     pages.push(i);
-    // }
 
+    if(props.isFetching) {
+        return <Preloader />
+    }
     return (<div>
         <div className={style.pagination}>
             {pages.map(p => {
