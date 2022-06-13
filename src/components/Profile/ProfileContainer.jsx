@@ -10,7 +10,6 @@ class ProfileContainer extends React.Component {
 
     componentDidMount() {
         let userId = this.props.router.params.userId;
-        debugger
         if (!userId) {
             //this.props.getAuthUserData();
             userId = this.props.myUserId;
