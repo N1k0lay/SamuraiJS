@@ -8,7 +8,6 @@ import {connect} from "react-redux";
 import React from "react";
 import Users from "./Users";
 import {compose} from "redux";
-import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 
 class UsersContainer extends React.Component {
     componentDidMount() {
@@ -62,5 +61,5 @@ export default compose(
         setCurrentPages,
         toggleFollowingProgress,
         getUsers
-    }), withAuthRedirect
+    }), //withAuthRedirect
 )(UsersContainer);

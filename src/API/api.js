@@ -28,7 +28,7 @@ export const usersAPI = {
             });
     },
     getProfile(userId) {
-        console.warn('Используется устаревший метов. Используйте profileAPI')
+        console.warn('Используется устаревший метод. Используйте profileAPI')
         return profileAPI.getProfile(userId);
     }
 };
@@ -54,4 +54,11 @@ export const authAPI = {
     me() {
         return instance.get(`auth/me`)
     },
+    login(email, password, rememberMe = false) {
+        return instance.post('auth/login', {email, password, rememberMe});
+    },
+    logout() {
+        return instance.delete('auth/login');
+    }
+
 }
