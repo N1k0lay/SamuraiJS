@@ -1,0 +1,21 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0 20px;
+    flex-wrap: wrap;
+}
+
+.pagination span {
+    padding: 5px 10px;
+    margin: 0 10px;
+    border: 1px solid black;
+}
+
+.pagination .selectedPage {
+    font-weight: 700;
+    border: 2px solid black;
+}
+.pagination .unSelectedPage {
+    font-weight: 300;
+    border: 0 solid black;
+}

@@ -3,30 +3,26 @@ import classes from './MyPosts.module.css';
 import Post from './Post/Post';
 import {ErrorMessage, Field, Form, Formik} from "formik";
 
-const MyPosts = (props) => {
-
-    let postElements = props.posts.map(p => <Post message={p.post} like={p.likesCount}/>);
-
-    //let newPostElement = React.createRef();
+const MyPosts = (props) =>  {
+    let postElements = props.posts.map(p => <Post key={p.id} message={p.post} like={p.likesCount}/>);
 
     let onAddPost = () => {
         props.addPost();
     }
-    // let onPostChange = () => {
-    //     let text = newPostElement.current.value;
-    //     props.updateNewPostText(text);
-    // }
-    return (<div className={classes.myPostsBlock}>
-            My Posts
-            <div>
-                <AddPostForm newPostText={props.newPostText} updateNewPostText={props.updateNewPostText}
-                             onAddPost={onAddPost}/>
-            </div>
-            <div>
-                {[postElements]}
-            </div>
-        </div>)
-}
+
+    return (
+        <div className={classes.myPostsBlock}>
+        My Posts
+        <div>
+            <AddPostForm newPostText={props.newPostText} updateNewPostText={props.updateNewPostText}
+                         onAddPost={onAddPost}/>
+        </div>
+        <div>
+            {[postElements]}
+        </div>
+    </div>
+    )
+};
 
 const AddPostForm = (props) => {
     return <div>
