@@ -16,6 +16,7 @@ import {
     getPageSize,
     getTotalUsersCount,
 } from "../../redux/users-selectors";
+import Preloader from "../common/preloader/Preloader";
 
 class UsersContainer extends React.Component {
     componentDidMount() {
@@ -29,6 +30,9 @@ class UsersContainer extends React.Component {
     }
 
     render() {
+        if (this.props.isFetching) {
+            return <Preloader/>
+        }
         return <>
             <Users totalUsersCount={this.props.totalUsersCount}
                    pageSize={this.props.pageSize}
