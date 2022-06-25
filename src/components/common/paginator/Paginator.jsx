@@ -45,27 +45,3 @@ export const Paginator = ({pageSize, onPageChanged, totalItemsCount, currentPage
     </div>
 
 }
-
-// <span className={ cn({
-//                     [style.selectedPage]: currentPage === p
-//                 }, style.unSelectedPage) }
-//                              key={p}
-//                              onClick={(e) => {
-//                                  onPageChanged(p);
-//                              }}>
-//                 {p}</span>
-
-
-// let pages = [1, 2, 3, 4, 5];
-// pages.push(pagesCount);
-//
-// return <div className={style.pagination}>
-//     {pages.map(p => {
-//         return <span key={currentPage} className={(currentPage === p) ? style.selectedPage : style.unSelectedPage}
-//                      onClick={(e) => {
-//                          onPageChanged(p)
-//                      }}>
-//             {p}
-//         </span>
-//     })}
-// </div>
