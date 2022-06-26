@@ -14,7 +14,8 @@ const MyPosts = (props) =>  {
         <div className={classes.myPostsBlock}>
         My Posts
         <div>
-            <AddPostForm newPostText={props.newPostText} updateNewPostText={props.updateNewPostText}
+            <AddPostForm newPostText={props.newPostText}
+                         updateNewPostText={props.updateNewPostText}
                          onAddPost={onAddPost}/>
         </div>
         <div>

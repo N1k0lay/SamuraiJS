@@ -21,12 +21,10 @@ const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileCo
 const UsersContainer = React.lazy(() => import('./components/Users/UsersContainer'));
 
 
-
 class App extends React.Component {
     componentDidMount() {
         this.props.initializeApp();
     }
-
     render() {
         if (!this.props.initialized) {
             return <Preloader/>
@@ -36,14 +34,18 @@ class App extends React.Component {
             <div className='app-wrapper'>
                 <HeaderContainer/>
                 <Navbar/>
-                <Suspense fallback={<Preloader />}>
+                <Suspense fallback={<Preloader/>}>
                     <div className='app-wrapper-content'>
                         <Routes>
-                            <Route path="/dialogs/*" element={<DialogsContainer/>}/>
-                            <Route path="/profile/:userId" element={<ProfileContainer/>}/>
-                            <Route path="/profile/" element={<ProfileContainer/>}/>
-                            <Route path="/users" element={<UsersContainer/>}/>
-                            <Route path="/login" element={<Login/>}/>
+
+                            <Route path="dialogs/*" element={<DialogsContainer/>}/>
+                            <Route path="profile" element={<ProfileContainer/>}>
+                                <Route index element={<div>Индексный маршрут портфолио</div>}/>
+                                <Route path=":userId" element={<ProfileContainer/>}/>
+                            </Route>
+                            <Route path="users" element={<UsersContainer/>}/>
+                            <Route path="login" element={<Login/>}/>
+
                         </Routes>
                     </div>
                 </Suspense>
