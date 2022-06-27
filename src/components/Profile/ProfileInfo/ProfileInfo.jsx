@@ -1,11 +1,15 @@
 import React from "react";
 import classes from "./ProfileInfo.module.css";
 import Preloader from "../../common/preloader/Preloader";
-import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 import avatar from "../../../assets/img/avatar.jpeg";
+import {useState} from "react";
+import ProfileDataForm from "./ProfileDataForm";
+import ProfileData from "./ProfileData";
 
+const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, saveProfile}) => {
 
-const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto}) => {
+    let [editMode, setEditMode] = useState(false);
+
     if (!profile) {
         return <Preloader/>
     }
@@ -24,15 +28,27 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto}) => {
                     <img className={classes.avatar} src={profile.photos.small || avatar} alt=""/>
                     {isOwner && <input type={'file'} onChange={onMainPhotoSelected}/>}
                 </div>
-                <div className={classes.descriptionBlock}>
-                    <div className={classes.fullName}>{profile.fullName}</div>
-                    <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
-                    <div className={classes.text}>{profile.aboutMe}</div>
-                </div>
+                {editMode
+                    ? <ProfileDataForm profile={profile}
+                                       status={status}
+                                       updateStatus={updateStatus}
+                                       isOwner={isOwner}
+                                       goToEditMode={() => {
+                                           setEditMode(false)
+                                       }}
+                                       saveProfile={saveProfile}/>
+                    : <ProfileData profile={profile}
+                                   status={status}
+                                   updateStatus={updateStatus}
+                                   isOwner={isOwner}
+                                   goToEditMode={() => {
+                                       setEditMode(true)
+                                   }}/>}
             </div>
 
         </div>
     )
 }
+
 
 export default ProfileInfo;

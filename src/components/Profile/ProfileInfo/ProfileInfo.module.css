@@ -12,7 +12,7 @@
 }
 
 .fullName {
-    display: inline;
+    display: block;
     font-size: 150%;
     font-weight: 500;
     margin-right: 20px;
@@ -36,4 +36,26 @@
 }
 .text {
     display: inline;
+}
+
+.contactItem {
+    padding-left: 10px;
+}
+
+.block {
+    display: block;
+}
+
+.contacts {
+
+}
+
+.error {
+    border: 1px solid red;
+    padding: 5px;
+    margin: 5px;
+}
+
+.error span {
+    display: block;
 }

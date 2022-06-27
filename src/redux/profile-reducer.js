@@ -3,7 +3,7 @@ import {profileAPI} from "../API/api";
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
-const SET_STATUS = 'SET_STATUS';
+const SET_STATUS = 'profile/SET_STATUS';
 const DELETE_POST = 'DELETE_POST';
 const SAVE_PHOTO_SUCCESS = 'SAVE_PHOTO_SUCCESS';
 
@@ -94,6 +94,19 @@ export const savePhoto = (file) => async (dispatch) => {
     if (response.data.resultCode === 0) {
         dispatch(savePhotoSuccess(response.data.data.photos));
     }
+};
+
+export const saveProfile = (profileData, setStatus, goToEditMode) => async (dispatch, getState) => {
+    const userId = getState().auth.userId;
+    const response = await profileAPI.saveProfile(profileData);
+    if (response.data.resultCode === 0) {
+        dispatch(getUserProfile(userId));
+        goToEditMode(false);
+    } else {
+        console.log(response.data.messages);
+        setStatus(response.data.messages);
+    }
+
 };
 
 export default profileReducer;
